@@ -83,3 +83,40 @@ const {name, lastName, nationality, favFood:{breakfast, lunch, dinner}} = human
 nationality : difName // Exchange variable name
 nationality : {difName} // Search variable on Object
 ```
+
+# Spread Operator
+
+```javascript
+const ob = {
+  first: "hi",
+  second: "hello"
+};
+const ab = {
+  third: "bye bye"
+};
+
+const two = { ...ob, ...ab }; // Spread Operator
+```
+
+# Classes
+
+```javascript
+class Human {
+  constructor(name, lastName) {
+    this.name = name;
+    this.lastName = lastName;
+  }
+}
+
+const nico = new Human("Nico", "Serrano");
+
+console.log(nico.name);
+
+class Baby extends Human {
+  cry() {
+    console.log("Waaaa");
+  }
+}
+
+const myBaby = new Baby();
+```
