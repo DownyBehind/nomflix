@@ -106,3 +106,100 @@ console.log(sumAll);
 const divided = ArrayUtilities.divide(sumAll);
 console.log(divided);
 ```
+
+# 3
+
+```javascript
+//App.js
+import React from "react";
+import Router from "./Router";
+
+function App() {
+  return (
+    <div>
+      <h1>Coin Explorer</h1>
+      <Router />
+    </div>
+  );
+}
+export default App;
+```
+
+```javascript
+//Header.js
+import React from "react";
+import { Link } from "react-router-dom";
+
+export default () => (
+  <header>
+    {
+      <ul>
+        <li>
+          <Link to="/prices">Prices</Link>
+        </li>
+        <li>
+          <Link to="/exchanges">Exchanges</Link>
+        </li>
+        <li>
+          <Link to="/coins">Coins</Link>
+        </li>
+      </ul>
+    }
+  </header>
+);
+```
+
+```javascript
+//Router.js
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route
+} from "react-router-dom";
+import Coins from "../Screens/Coins";
+import Exchanges from "../Screens/Exchanges";
+import Prices from "../Screens/Prices";
+import Header from "./Header";
+
+export default () => {
+  return (
+    <Router>
+      <Header />
+      {
+        <Switch>
+          <Route path="/" exact component={Coins} />
+          <Route path="/exchanges" exact component={Exchanges} />
+          <Route path="/prices" exact component={Prices} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      }
+    </Router>
+  );
+};
+```
+
+```javascript
+//Coins.js
+export default () => "Coins!";
+```
+
+```javascript
+//Exchanges.js
+export default () => "Exchanges!";
+```
+
+```javascript
+//Prices.js
+export default () => "Prices!";
+```
+
+```javascript
+//index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./src/Components/App";
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
