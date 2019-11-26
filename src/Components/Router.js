@@ -8,14 +8,18 @@ import {
 import Home from "Routes/Home";
 import TV from "Routes/TV";
 import Search from "Routes/Search";
+import Header from "Components/Header";
 
 export default () => (
   <Router>
-    <Switch>
-      <Route path="/" exact component={Home}></Route>
-      <Route path="/tv" exact component={TV}></Route>
-      <Route path="/search" exact component={Search}></Route>
-      <Redirect from="*" to="/"></Redirect>
-    </Switch>
+    <>
+      <Header></Header>
+      <Switch>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/tv" exact component={TV}></Route>
+        <Route path="/search" exact component={Search}></Route>
+        <Redirect from="*" to="/"></Redirect>
+      </Switch>
+    </>
   </Router>
 );
