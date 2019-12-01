@@ -1,1 +1,1 @@
-export default () => "Homne";
+export default () => "Home";
